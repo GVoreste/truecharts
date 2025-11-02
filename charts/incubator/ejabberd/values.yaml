@@ -51,7 +51,6 @@ configmap:
   conf:
     enabled: true
     data:
-      hosts:
-        - localhost
+      hosts: ["localhost"]
 
 
