@@ -22,15 +22,15 @@ service:
   main:
     ports:
       main:
-        enabled: false
-        protocol: http
-        targetPort: 5280
-        port: 5280
-      xmpp:
         enabled: true
         protocol: tcp
         targetPort: 5222
         port: 5222
+      web-admin:
+        enabled: false
+        protocol: http
+        targetPort: 5280
+        port: 5280
       xmpp_federation:
         enabled: false
         protocol: tcp
