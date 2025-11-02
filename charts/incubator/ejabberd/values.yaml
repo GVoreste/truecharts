@@ -2,6 +2,15 @@ image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/sando38/helm-ejabberd
   tag: 24.12-k8s1@sha256:0b2c31d3236de9dcf5b34f541f1e4ce77aad6a94ee60cb8923ecb88e65a6d990
+workload:
+  main:
+    podSpec:
+     containers:
+        main:
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 9000
+            runAsGroup: 9000
 service:
   main:
     ports:
