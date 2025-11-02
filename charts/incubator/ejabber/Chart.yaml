@@ -1,0 +1,16 @@
+name: ejabber
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+  - name: common
+    version: 28.26.1
+    repository: oci://oci.trueforge.org/truecharts
+deprecated: false
+description: Ejabber is a server implementation for XMPP protocol
+sources:
+  - https://github.com/processone/ejabberd
+  - https://github.com/sando38/helm-ejabberd
+  - https://github.com/processone/ejabberd/pkgs/container/ejabberd
+type: application
+version: "24.12-k8s1"
+
