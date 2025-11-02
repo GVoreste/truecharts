@@ -7,6 +7,7 @@ workload:
     podSpec:
      containers:
         main:
+          probes: {}
           securityContext:
             runAsNonRoot: true
             runAsUser: 9000
@@ -33,16 +34,12 @@ persistence:
   data:
     enabled: true
     mountPath: /opt/ejabberd/database/
-  # conf:
-  #   enabled: false
-  #   type: configmap
-  #   mountPath: /opt/ejabberd/conf/ejabberd.yml
-  #   object-name: configuration
-  #   readOnly: true
   conf:
-    enabled: false
+    enabled: true
     type: configmap
-    mountPath: /opt/ejabberd/conf/
+    mountPath: /opt/ejabberd/conf/ejabberd.yml
+    object-name: configuration
+    readOnly: true
   upload:
     enabled: true
     mountPath: /opt/ejabberd/upload/
@@ -50,9 +47,11 @@ persistence:
     enabled: false
     mountPath: /opt/ejabberd/logs/
 
-# configmap:
-#   conf:
-#     enabled: true
-#     data: {}
+configmap:
+  conf:
+    enabled: true
+    data:
+      hosts:
+        - localhost
 
 
