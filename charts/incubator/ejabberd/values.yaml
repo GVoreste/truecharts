@@ -16,7 +16,7 @@ service:
   main:
     ports:
       main:
-        enabled: true
+        enabled: false
         protocol: http
         targetPort: 5280
         port: 5280
