@@ -41,14 +41,13 @@ persistence:
     enabled: true
     mountPath: /opt/ejabberd/database/
   conf:
-    enabled: true
     mountPath: /opt/ejabberd/conf/
-  # conf:
-  #   enabled: true
-  #   type: configmap
-  #   mountPath: /opt/ejabberd/conf/ejabberd.yml
-  #   objectName: configuration
-  #   readOnly: true
+    objectName: config
+    type: configmap
+    enabled: true
+    items:
+    - key: ejabberd.yml
+      path: ejabberd.yml
   upload:
     enabled: true
     mountPath: /opt/ejabberd/upload/
@@ -56,11 +55,12 @@ persistence:
     enabled: false
     mountPath: /opt/ejabberd/logs/
 
-# configmap:
-#   configuration:
-#     enabled: true
-#     data:
-#       hosts:
-#         - "localhost"
+configmap:
+  config:
+    enabled: true
+    data:
+      ejabberd.yml: >-
+        '{{ tpl (.Files.Get "ejabberd.yml") . }}'
+
 
 
