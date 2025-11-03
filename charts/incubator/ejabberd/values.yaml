@@ -26,16 +26,19 @@ service:
         protocol: tcp
         targetPort: 5222
         port: 5222
-      web-admin:
-        enabled: false
-        protocol: http
-        targetPort: 5280
-        port: 5280
       xmpp_federation:
         enabled: false
         protocol: tcp
         targetPort: 5269
         port: 5269
+  web-admin:
+    ports:
+      web-admin:
+        enabled: true
+        protocol: http
+        targetPort: 5280
+        port: 5280
+
 persistence:
   data:
     enabled: true
