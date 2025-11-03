@@ -32,6 +32,7 @@ service:
         targetPort: 5269
         port: 5269
   web-admin:
+    enabled: true
     ports:
       web-admin:
         enabled: true
