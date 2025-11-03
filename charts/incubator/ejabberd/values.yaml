@@ -20,8 +20,17 @@ workload:
             runAsGroup: 9000
 service:
   main:
+    enabled: true
     ports:
       main:
+        enabled: true
+        protocol: http
+        targetPort: 5280
+        port: 5280
+  xmpp:
+    enabled: true
+    ports:
+      xmpp:
         enabled: true
         protocol: tcp
         targetPort: 5222
@@ -31,15 +40,6 @@ service:
         protocol: tcp
         targetPort: 5269
         port: 5269
-  web-admin:
-    enabled: true
-    ports:
-      web-admin:
-        enabled: true
-        protocol: http
-        targetPort: 5280
-        port: 5280
-
 persistence:
   data:
     enabled: true
