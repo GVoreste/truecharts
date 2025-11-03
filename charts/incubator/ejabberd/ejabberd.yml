@@ -1,4 +1,13 @@
+loglevel: debug
 hosts:
   - localhost
   - 127.0.0.1
   - {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local
+listen:
+  -
+    ip: "0.0.0.0"
+    port: 5280
+    module: ejabberd_http
+    tls: false
+    request_handlers:
+      /admin: ejabberd_web_admin
