@@ -43,6 +43,7 @@ persistence:
   conf:
     mountPath: /opt/ejabberd/conf/
     objectName: config
+    readOnly: true
     type: configmap
     enabled: true
     items:
